@@ -33,7 +33,7 @@ function showTime(){
             break;
     }
 
-    document.getElementById('myClock').innerHTML = `${saat}:${dakika}:${saniye} - ${gunAdi}`
+    document.getElementById('myClock').innerHTML = `${saat < 10 ? '0':''}${saat}:${dakika < 10 ? '0':''}${dakika}:${saniye < 10 ? '0':''}${saniye} - ${gunAdi}`
 
     setTimeout(showTime, 1000)
 }
