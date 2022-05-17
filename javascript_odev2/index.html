@@ -25,7 +25,7 @@
           data-delay="4000"
         >
           <div>
-            <button
+            <span
               type="button"
               class="close"
               data-dismiss="toast"
@@ -41,7 +41,7 @@
     <div class="mr-1" style="position: relative">
       <div style="position: absolute; top: 0; right: 0">
         <div
-          id="liveToast"
+          id="liveToast2"
           class="toast error hide"
           role="alert"
           aria-live="assertive"
@@ -64,19 +64,22 @@
     </div>
     <div class="container">
       <div class="header">
-        <img
+        <center>
+          <img
           src="https://cdn.sanity.io/images/9kdepi1d/production/65c832d202a503b15d99e628f4313782f3ef50db-300x62.png"
           class="mb-1"
           alt=""
-        />
-        <h2>Yapılacaklar Listesi</h2>
-        <form class = "row mb-3">
-          <div class="col-sm-10">
-            <input type="text" id="task" class="form-control" placeholder="Bugün ne yapacaksın?" />
-          </div>
-          <div class="col-sm-2">
+          />
+          <h2>Yapılacaklar Listesi</h2>
+        </center>
+        
+        <form class = "input-group mb-3">
+          
+          <input type="text" id="task" class="form-control" placeholder="Bugün ne yapacaksın?" />
+          
+          <div class="input-group-append">
             <span onclick="newElement()" id="liveToastBtn" class="btn btn-secondary"
-              >Ekle</span>
+              >Ekle<span>
           </div>
         </form>
         

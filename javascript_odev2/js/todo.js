@@ -18,11 +18,18 @@ if(localStorage.getItem("todolist")){
 
 function newElement(){
     let yeni = document.getElementById("task").value;
-    maddeler.push(yeni)
-    maddeler.length % 2 === 0 ? ekle(1,yeni) : ekle(0,yeni)
-    localStorage.setItem("todolist", JSON.stringify(maddeler));
-    document.getElementById("task").value = "";
-    $('#liveToast').toast('show')
+    if(yeni!==""){
+        maddeler.push(yeni)
+        yenile();
+        localStorage.setItem("todolist", JSON.stringify(maddeler));
+        document.getElementById("task").value = "";
+        $('#liveToast').toast('show')
+    }
+    else{
+        $('#liveToast2').toast('show')
+    }
+    
+
 }
 
 maddeler.forEach(listele)
@@ -33,7 +40,7 @@ function listele(item, index, arr){
 
 function ekle(index, item){
     let liDOM = document.createElement('li')
-
+    liDOM.style.margin = "0px"; 
     if(index%2 === 0){
         liDOM.classList.add('list-group-item')
     }
@@ -48,9 +55,13 @@ function ekle(index, item){
 function sil(index){
     maddeler.splice(index,1);
     localStorage.setItem("todolist", JSON.stringify(maddeler));
+    yenile();
+    
+}
+
+function yenile(){
     while (todoListDOM.firstChild) {
         todoListDOM.removeChild(todoListDOM.firstChild);
     }
     maddeler.forEach(listele)
-    
 }
